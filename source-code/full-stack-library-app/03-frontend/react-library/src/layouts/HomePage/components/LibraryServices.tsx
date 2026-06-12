@@ -1,4 +1,9 @@
+import {useAuth0} from "@auth0/auth0-react";
+
 export const LibraryServices = () => {
+
+    const { getIdTokenClaims } = useAuth0();
+
     return (
         <div className='container my-5'>
             <div className='row p-4 align-items-center border shadow-lg'>

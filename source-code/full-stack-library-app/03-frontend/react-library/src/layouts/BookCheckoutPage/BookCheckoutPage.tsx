@@ -5,9 +5,11 @@ import {SpinnerLoading} from "../Utils/SpinnerLoading";
 import {StarsReview} from "../Utils/StarsReview";
 import {CheckoutAndReviewBox} from "./CheckoutAndReviewBox";
 import {LatestReviews} from "./LatestReviews";
-
+import { useAuth0 } from "@auth0/auth0-react";
 
 export const BookCheckoutPage = () => {
+
+    const {isAuthenticated, getAccessTokenSilently } = useAuth0();
 
     const [book, setBook] = useState<BookModel>();
     const [isLoading, setIsLoading] = useState(true);
@@ -156,8 +158,10 @@ export const BookCheckoutPage = () => {
                 </div>
                 <CheckoutAndReviewBox book={book} mobile={true}/>
                 <hr/>
-                <LatestReviews reviews={reviews} bookId={book?.id} mobile={false} />
+                <LatestReviews reviews={reviews} bookId={book?.id} mobile={false}/>
             </div>
         </div>
     );
+    //TODO
+    // isAuthenticated={isAuthenticated}/>
 }
