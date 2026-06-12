@@ -28,14 +28,15 @@ public class SecurityConfiguration {
                 .oauth2Login(withDefaults())
                 .oauth2ResourceServer((oauth2) -> oauth2.jwt(withDefaults()))
                 .cors(withDefaults());
-
+        
         // Disable Cross-Site Request Forgery
         http.csrf(AbstractHttpConfigurer::disable);
+        
         // Add content negotiation strategy
         http.setSharedObject(ContentNegotiationStrategy.class,
                 new HeaderContentNegotiationStrategy());
         
-        // Force a non-empty response body for 401's to make the response friendly
+        // Force a non-empty response body for 401s to make the response friendly
         Okta.configureResourceServer401ResponseBody(http);
         
         return http.build();
