@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import BookModel from "../../models/BookModel";
 import React from "react";
+import {useAuth0} from "@auth0/auth0-react";
 
 export const CheckoutAndReviewBox: React.FC<{ book: BookModel | undefined, mobile: boolean,
     currentLoansCount: number, isAuthenticated: any, isCheckedOut: boolean,
     checkoutBook: any }> = (props) => {
+
+    const {loginWithRedirect} = useAuth0();
 
     function buttonRender() {
         if (props.isAuthenticated) {
@@ -16,7 +19,11 @@ export const CheckoutAndReviewBox: React.FC<{ book: BookModel | undefined, mobil
                 return (<p className='text-danger'>Too many books checked out.</p>)
             }
         }
-        return (<Link to={'/login'} className='btn btn-success btn-lg'>Sign in</Link>)
+        return (
+            <button onClick={() => loginWithRedirect()} className="btn btn-success btn-lg">
+                Sign in
+            </button>
+        )
     }
 
     return (
