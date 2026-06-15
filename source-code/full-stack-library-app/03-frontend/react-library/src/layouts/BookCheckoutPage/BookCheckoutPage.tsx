@@ -63,7 +63,7 @@ export const BookCheckoutPage = () => {
             setIsLoading(false);
             setHttpError(error.message);
         })
-    }, [isCheckedOut]);
+    }, [isCheckedOut, getAccessTokenSilently, bookId]);
 
     useEffect(() => {
         const fetchUserCurrentLoansCount = async () => {
