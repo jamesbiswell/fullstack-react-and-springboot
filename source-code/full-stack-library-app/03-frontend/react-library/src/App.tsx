@@ -12,6 +12,7 @@ import {Auth0Provider, withAuthenticationRequired} from '@auth0/auth0-react';
 import {ReviewListPage} from "./layouts/BookCheckoutPage/ReviewListPage/ReviewListPage";
 import {ShelfPage} from "./layouts/ShelfPage/ShelfPage";
 import {MessagesPage} from "./layouts/MessagesPage/MessagesPage";
+import {ManageLibraryPage} from "./layouts/ManageLibraryPage/ManageLibraryPage";
 
 const Auth0ProviderWithHistory = ({children}: { children: React.ReactNode }) => {
     const history = useHistory();
@@ -68,7 +69,7 @@ export const App = () => {
 
                         <SecureRoute path='/shelf' component={ShelfPage}/>
                         <SecureRoute path='/messages' component={MessagesPage}/>
-                        {/*<SecureRoute path='/admin' component={ManageLibraryPage}/>*/}
+                        <SecureRoute path='/admin' component={ManageLibraryPage}/>
                     </Switch>
                 </div>
                 <Footer/>
