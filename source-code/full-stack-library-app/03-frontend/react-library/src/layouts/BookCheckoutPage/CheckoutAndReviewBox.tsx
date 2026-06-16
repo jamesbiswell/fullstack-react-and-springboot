@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import BookModel from "../../models/BookModel";
 import React from "react";
 import {useAuth0} from "@auth0/auth0-react";
@@ -23,7 +23,14 @@ export const CheckoutAndReviewBox: React.FC<{
             }
         }
         return (
-            <button onClick={() => loginWithRedirect()} className="btn btn-success btn-lg">
+            <button
+                onClick={() => loginWithRedirect({
+                    appState: {
+                        returnTo: `/checkout/${props.book?.id}`
+                    }
+                })}
+                className="btn btn-success btn-lg"
+            >
                 Sign in
             </button>
         )
@@ -32,9 +39,7 @@ export const CheckoutAndReviewBox: React.FC<{
     function reviewRender() {
         if (props.isAuthenticated && !props.isReviewLeft) {
             return (
-                <p>
-                    <LeaveAReview submitReview={props.submitReview}/>
-                </p>
+                <LeaveAReview submitReview={props.submitReview}/>
             )
         } else if (props.isAuthenticated && props.isReviewLeft) {
             return (

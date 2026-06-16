@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 export const LibraryServices = () => {
 
     const { isAuthenticated } = useAuth0();
+    const { loginWithRedirect} = useAuth0();
 
     return (
         <div className='container my-5'>
@@ -22,9 +23,16 @@ export const LibraryServices = () => {
                                 Library Services
                             </Link>
                             :
-                            <Link className='btn main-color btn-lg text-white' to='/login'>
-                                Sign up
-                            </Link>
+                            <button
+                                onClick={() => loginWithRedirect({
+                                    appState: {
+                                        returnTo: "/messages"
+                                    }
+                                })}
+                                className="btn btn-success btn-lg"
+                            >
+                                Sign in
+                            </button>
                         }
                     </div>
                 </div>
