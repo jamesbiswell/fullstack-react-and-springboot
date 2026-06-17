@@ -2,6 +2,7 @@ package com.luv2code.springbootlibrary.controller;
 
 import com.luv2code.springbootlibrary.requestmodels.ReviewRequest;
 import com.luv2code.springbootlibrary.service.ReviewService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ public class ReviewController {
 
     private ReviewService reviewService;
 
+    @Autowired
     public ReviewController (ReviewService reviewService) {
         this.reviewService = reviewService;
     }
