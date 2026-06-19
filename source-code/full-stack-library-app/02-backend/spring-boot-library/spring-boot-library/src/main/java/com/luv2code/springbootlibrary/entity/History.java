@@ -1,7 +1,6 @@
 package com.luv2code.springbootlibrary.entity;
 
 import lombok.Data;
-
 import jakarta.persistence.*;
 
 @Entity
