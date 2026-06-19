@@ -25,3 +25,5 @@ yarn-error.log*
 /ssl-localhost
 /src/lib
 localhost.conf
+
+.env
