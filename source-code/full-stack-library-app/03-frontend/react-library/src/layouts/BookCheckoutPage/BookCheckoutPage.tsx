@@ -283,13 +283,13 @@ export const BookCheckoutPage = () => {
                 </div>
                 <hr/>
                 <LatestReviews reviews={reviews} bookId={book?.id} mobile={false} />
+            </div>
 
-            </div>
-            {displayError && <div className='alert alert-danger mt-3' role='alert'>
-                Please pay outstanding fees and/or return late book(s).
-            </div>
-            }
             <div className='container d-lg-none mt-5'>
+                {displayError && <div className='alert alert-danger mt-3' role='alert'>
+                    Please pay outstanding fees and/or return late book(s).
+                </div>
+                }
                 <div className='d-flex justify-content-center align-items-center'>
                     {book?.img ?
                         <img src={book?.img} width='226' height='349' alt='Book'/>
